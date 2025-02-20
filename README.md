@@ -153,6 +153,9 @@ resource "azurerm_mssql_database" "sqldb" {
 > 
 > SQL_PASS: Password del usuario administrador de la base de datos, ejm: upt.2025
 
+![image](https://github.com/user-attachments/assets/1c082dc4-8048-404f-8703-ad60a994b32b)
+
+
 5. En el Visual Studio Code, crear la carpeta .github/workflows en la raiz del proyecto, seguidamente crear el archivo deploy.yml con el siguiente contenido
 <details><summary>Click to expand: deploy.yml</summary>
 
@@ -323,6 +326,9 @@ jobs:
 azurerm_linux_web_app.webapp: Creation complete after 53s [id=/subscriptions/1f57de72-50fd-4271-8ab9-3fc129f02bc0/resourceGroups/upt-arg-XXX/providers/Microsoft.Web/sites/upt-awa-XXX]
 ```
 
+![image](https://github.com/user-attachments/assets/0b7f3bb8-49ee-403e-b487-63bb8ee3cd9d)
+
+
 ### CONSTRUCCION DE LA APLICACION - BACKEND
 
 1. En el terminal, ubicarse en un ruta que no sea del sistema y ejecutar los siguientes comandos.
@@ -335,6 +341,9 @@ func new --name ShortenHttp --template "HTTP trigger" --authlevel "anonymous"
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version=8.0.0
 dotnet add package Microsoft.EntityFrameworkCore.Tools --version=8.0.0
 ```
+
+![image](https://github.com/user-attachments/assets/467679fc-5df2-4d4c-8f4d-c26d89c83b51)
+
 
 2. En el VS Code, buscar el proyecto ShortenFunction modificar el archivo ShortenHttp.cs, con el siguiente contenido:
 ```CSharp
@@ -511,6 +520,9 @@ namespace ShortenFunction
 
 ```
 
+![image](https://github.com/user-attachments/assets/e8406ef3-1a6a-4beb-8441-9a1c928ed183)
+
+
 3. En el VS Code, buscar el proyecto ShortenFunction modificar el archivo local.settings.json, con el siguiente contenido:
 ```JSon
 {
@@ -534,10 +546,16 @@ dotnet ef migrations add CreateIdentitySchema
 dotnet ef database update
 ```
 
+![image](https://github.com/user-attachments/assets/d070aca7-d1ba-4ade-ab1a-26c5df74f70c)
+
+
 5. En el Terminal, ejecutar el siguiente comando para ejecutar la aplicación.
 ```Bash
 func start
 ```
+
+![image](https://github.com/user-attachments/assets/5e93056b-401c-4660-bee1-9acbb3c92f2c)
+
 
 6. En el Terminal, ejecutar el siguiente comando para configurar, compilar y desplegar la aplicación.
 ```Bash
@@ -552,8 +570,14 @@ az functionapp deployment source config-zip -g upt-arg-373 -n upt-afn-373 --src 
 >       YYY, usuario administrador de base de datos
 >       ZZZ, password del usuario de base de datos
 
+![image](https://github.com/user-attachments/assets/90b9114c-53b9-4de1-8082-dd0b4463a371)
+
+
 7. En el Navegador, abrir una nueva pestaña e ingresar a la url https://upt-afn-XXX.azurewebsites.net/api/shorturl
 >Donde: XXX, id de su azure function
+
+![image](https://github.com/user-attachments/assets/76529623-8667-4a6e-9ec4-c8e3e0fcd25c)
+
 
 ### CONSTRUCCION DE LA APLICACION - FRONTEND
 
@@ -564,6 +588,10 @@ cd ShortenApp
 dotnet new razorcomponent -n UrlMapping -o Pages
 code .
 ```
+
+![image](https://github.com/user-attachments/assets/f49fecb3-4db8-474a-b5fb-d7ad00c14e91)
+
+
 9. En Visual Studio Code, dentro del proyecto ClienteApp, editar el archivo UrlMapping.razor con el siguiente contenido:
 ```CSharp
 @page "/urlmapping"
@@ -632,6 +660,10 @@ else
     }
 }
 ```
+
+![image](https://github.com/user-attachments/assets/e9229ff5-2b33-4520-82e1-2cc5830a9408)
+
+
 10. En Visual Studio Code, en el proyecto ClienteApp en la ruta Layout modificar el archivo NavMenu.razor
 > dice
 ```Razor
@@ -645,6 +677,10 @@ else
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Urls Acortadas
             </NavLink>
 ```
+
+![image](https://github.com/user-attachments/assets/1d89ac49-0079-4906-8492-e9b93e18dbec)
+
+
 11. En Visual Studio Code, modificar el archivo program.cs, reemplazar la linea
 > dice
 ```CSharp
@@ -655,6 +691,9 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://upt-afn-XXX.azurewebsites.net") });
 ```
 >Donde: XXX, id del azure function
+
+![image](https://github.com/user-attachments/assets/b9eb70c7-deee-48ed-a3ed-1171ed64964c)
+
 
 12. (Opcional) en el terminal, ubicarse en la carpeta ClienteAPI, ejecutar el comando `dotnet run` para iniciar la aplicación. Anotar el numero de puerto que aparecera: Now listening on: http://localhost:XXXX. Abrir un navegador de internet e ingresar la url: http://localhost:XXXX
 
@@ -667,9 +706,15 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 ```
 >Donde: XXX, id del azure static webapp
 
+![image](https://github.com/user-attachments/assets/ed033b4d-408e-4576-afa7-10037fa1841d)
+
+
 15. En el Terminal, se visualizara el link de la Webapp Estatica, hacer click en el para verificar los resultados.
 
 ![image](https://github.com/user-attachments/assets/463ed443-3843-44a1-95bf-c7a9aa999666)
+
+
+![image](https://github.com/user-attachments/assets/4d8e6309-30ae-45be-8c0c-9aa471840bde)
 
 
 ## ACTIVIDADES ENCARGADAS
@@ -742,6 +787,10 @@ Timestamp             Name      Total
 PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT> 
 
 2. Realizar el escaneo del codigo de terraform utilizando TfSec o Trivy dentro del Github Action. (2ptos)
+
+![image](https://github.com/user-attachments/assets/4c8ecdc0-1023-4418-912c-bd6e67b369cf)
+
+
 3. En la aplicación completar con las demas funcionalidades, de crear, actualizar y eliminar (4ptos)
 4. Realizar el escaneo de vulnerabilidad con SonarCloud y Semgrep dentro del Github Action correspondiente. (2ptos)
 5. Generar un Action para el despliegue de las dos aplicaciones, backend y frntend, incluyendo todo lo anterior. (4ptos)
