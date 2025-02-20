@@ -1,4 +1,4 @@
-name: Trivy Security Scan
+name: TfSec Security Scan
 
 on:
   push:
@@ -11,22 +11,28 @@ on:
       - main
 
 jobs:
-  trivy-scan:
-    name: Security Scan with Trivy
+  tfsec-scan:
+    name: Security Scan with TfSec
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Trivy
+      - name: Install TfSec
         run: |
-          sudo apt-get install -y wget curl
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+          wget https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64 -O /usr/local/bin/tfsec
+          chmod +x /usr/local/bin/tfsec
 
+      - name: List files to confirm Terraform files exist
+        run: |
+          echo "Listing files in infra/"
+          ls -R infra/
 
-      - name: Run Trivy scan (Show in GitHub Actions)
+      - name: Run TfSec scan (Show results in GitHub Actions)
         run: |
           cd infra
-          trivy config --format table . || true
+          tfsec --format=pretty . | tee tfsec-results.txt || true
 
+      - name: Print TfSec results to console
+        run: cat infra/tfsec-results.txt
