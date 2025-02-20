@@ -32,7 +32,5 @@ jobs:
       - name: Run TfSec scan (Show results in GitHub Actions)
         run: |
           cd infra
-          tfsec --format=pretty . | tee tfsec-results.txt || true
+          tfsec --format default . || true
 
-      - name: Print TfSec results to console
-        run: cat infra/tfsec-results.txt
