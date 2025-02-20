@@ -12,7 +12,7 @@ variable "suscription_id" {
     type = string
     description = "Azure subscription id"
 }
-# h
+# ho
 variable "sqladmin_username" {
     type = string
     description = "Administrator username for server"
