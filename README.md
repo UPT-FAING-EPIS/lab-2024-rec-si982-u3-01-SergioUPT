@@ -734,7 +734,7 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 ![image](https://github.com/user-attachments/assets/4b0ff6a6-c451-4790-9ecc-31435aa084f7)
 
 
-
+```Bash
 PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT> az monitor metrics list --resource "/subscriptions/45cba015-410d-46a2-9afa-61d8509ecd20/resourceGroups/upt-arg-580/providers/Microsoft.Web/sites/upt-afn-580" --metric "Requests" --start-time 2025-02-19T22:00:00Z --end-time 2025-02-19T23:00:00Z --output table
 Timestamp             Name      Total
 --------------------  --------  -------
@@ -799,6 +799,7 @@ Timestamp             Name      Total
 2025-02-19T22:58:00Z  Requests  0.0
 2025-02-19T22:59:00Z  Requests  0.0
 PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT> 
+```
 
 2. Realizar el escaneo del codigo de terraform utilizando TfSec o Trivy dentro del Github Action. (2ptos)
 
