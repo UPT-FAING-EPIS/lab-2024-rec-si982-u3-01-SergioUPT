@@ -1,0 +1,11 @@
+-Oz
+-v
+-fwasm-exceptions
+-DDISABLE_PERFTRACING_LISTEN_PORTS=1
+-DLINK_ICALLS=1
+-DGEN_PINVOKE=1
+-emit-llvm
+"-IC:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT\src\ShortenApp\obj\Release\net9.0\wasm\for-publish"
+"-IC:\Program Files\dotnet\packs\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\9.0.1\runtimes\browser-wasm\native\include\mono-2.0"
+"-IC:\Program Files\dotnet\packs\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\9.0.1\runtimes\browser-wasm\native\include\wasm"
+-g
