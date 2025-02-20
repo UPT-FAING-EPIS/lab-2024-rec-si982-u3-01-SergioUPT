@@ -19,14 +19,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup tfsec
+      - name: Install tfsec
         run: |
-          curl -L -o /tmp/tfsec.tar.gz "https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64.tar.gz"
-          tar -xzvf /tmp/tfsec.tar.gz -C /tmp
-          mv -v /tmp/tfsec /usr/local/bin/tfsec
+          wget https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64 -O /usr/local/bin/tfsec
           chmod +x /usr/local/bin/tfsec
 
-      - name: Run tfsec
+      - name: Check tfsec version
+        run: tfsec --version
+
+      - name: Run tfsec scan
         run: |
           cd infra
           tfsec --format=json --out=tfsec-results.json .
