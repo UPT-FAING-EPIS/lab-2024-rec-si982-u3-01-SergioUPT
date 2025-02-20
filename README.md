@@ -721,6 +721,9 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 
 1. Generar y subir el diagrama de infraestructura al repositorio como lab_02.png y el reporte de metricas. (2ptos)
 
+![image](https://github.com/user-attachments/assets/f7cb23a1-af40-4b41-b0c7-a7aaffc80530)
+
+
 PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT> az monitor metrics list --resource "/subscriptions/45cba015-410d-46a2-9afa-61d8509ecd20/resourceGroups/upt-arg-580/providers/Microsoft.Web/sites/upt-afn-580" --metric "Requests" --start-time 2025-02-19T22:00:00Z --end-time 2025-02-19T23:00:00Z --output table
 Timestamp             Name      Total
 --------------------  --------  -------
