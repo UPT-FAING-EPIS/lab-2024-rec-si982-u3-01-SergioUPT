@@ -675,6 +675,72 @@ swa deploy ./publish/wwwroot -n upt-swa-XXX --env production
 ## ACTIVIDADES ENCARGADAS
 
 1. Generar y subir el diagrama de infraestructura al repositorio como lab_02.png y el reporte de metricas. (2ptos)
+
+PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT> az monitor metrics list --resource "/subscriptions/45cba015-410d-46a2-9afa-61d8509ecd20/resourceGroups/upt-arg-580/providers/Microsoft.Web/sites/upt-afn-580" --metric "Requests" --start-time 2025-02-19T22:00:00Z --end-time 2025-02-19T23:00:00Z --output table
+Timestamp             Name      Total
+--------------------  --------  -------
+2025-02-19T22:00:00Z  Requests  0.0
+2025-02-19T22:01:00Z  Requests  0.0
+2025-02-19T22:02:00Z  Requests  0.0
+2025-02-19T22:03:00Z  Requests  0.0
+2025-02-19T22:04:00Z  Requests  0.0
+2025-02-19T22:05:00Z  Requests  0.0
+2025-02-19T22:06:00Z  Requests  0.0
+2025-02-19T22:07:00Z  Requests  0.0
+2025-02-19T22:08:00Z  Requests  0.0
+2025-02-19T22:09:00Z  Requests  0.0
+2025-02-19T22:10:00Z  Requests  0.0
+2025-02-19T22:11:00Z  Requests  0.0
+2025-02-19T22:12:00Z  Requests  0.0
+2025-02-19T22:13:00Z  Requests  0.0
+2025-02-19T22:14:00Z  Requests  0.0
+2025-02-19T22:15:00Z  Requests  0.0
+2025-02-19T22:16:00Z  Requests  0.0
+2025-02-19T22:17:00Z  Requests  0.0
+2025-02-19T22:18:00Z  Requests  0.0
+2025-02-19T22:19:00Z  Requests  0.0
+2025-02-19T22:20:00Z  Requests  0.0
+2025-02-19T22:21:00Z  Requests  0.0
+2025-02-19T22:22:00Z  Requests  0.0
+2025-02-19T22:23:00Z  Requests  0.0
+2025-02-19T22:24:00Z  Requests  0.0
+2025-02-19T22:25:00Z  Requests  0.0
+2025-02-19T22:26:00Z  Requests  0.0
+2025-02-19T22:27:00Z  Requests  0.0
+2025-02-19T22:28:00Z  Requests  0.0
+2025-02-19T22:29:00Z  Requests  0.0
+2025-02-19T22:30:00Z  Requests  0.0
+2025-02-19T22:31:00Z  Requests  0.0
+2025-02-19T22:32:00Z  Requests  0.0
+2025-02-19T22:33:00Z  Requests  0.0
+2025-02-19T22:34:00Z  Requests  0.0
+2025-02-19T22:35:00Z  Requests  0.0
+2025-02-19T22:36:00Z  Requests  0.0
+2025-02-19T22:37:00Z  Requests  0.0
+2025-02-19T22:38:00Z  Requests  0.0
+2025-02-19T22:39:00Z  Requests  0.0
+2025-02-19T22:40:00Z  Requests  0.0
+2025-02-19T22:41:00Z  Requests  0.0
+2025-02-19T22:42:00Z  Requests  0.0
+2025-02-19T22:43:00Z  Requests  0.0
+2025-02-19T22:44:00Z  Requests  0.0
+2025-02-19T22:45:00Z  Requests  0.0
+2025-02-19T22:46:00Z  Requests  0.0
+2025-02-19T22:47:00Z  Requests  0.0
+2025-02-19T22:48:00Z  Requests  0.0
+2025-02-19T22:49:00Z  Requests  0.0
+2025-02-19T22:50:00Z  Requests  0.0
+2025-02-19T22:51:00Z  Requests  0.0
+2025-02-19T22:52:00Z  Requests  0.0
+2025-02-19T22:53:00Z  Requests  0.0
+2025-02-19T22:54:00Z  Requests  0.0
+2025-02-19T22:55:00Z  Requests  0.0
+2025-02-19T22:56:00Z  Requests  0.0
+2025-02-19T22:57:00Z  Requests  0.0
+2025-02-19T22:58:00Z  Requests  0.0
+2025-02-19T22:59:00Z  Requests  0.0
+PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT> 
+
 2. Realizar el escaneo del codigo de terraform utilizando TfSec o Trivy dentro del Github Action. (2ptos)
 3. En la aplicación completar con las demas funcionalidades, de crear, actualizar y eliminar (4ptos)
 4. Realizar el escaneo de vulnerabilidad con SonarCloud y Semgrep dentro del Github Action correspondiente. (2ptos)
