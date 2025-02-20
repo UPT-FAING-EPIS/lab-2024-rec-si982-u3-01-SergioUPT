@@ -2,6 +2,10 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18286495)
 # SESION DE LABORATORIO N° 04: Construyendo una Aplicación WebApi y un Cliente Web Estático
 
+# NOMBRE
+
+Sergio Lizárraga Pomareda
+
 ## OBJETIVOS
   * Comprender el desarrollo una Aplicación Web API con .Net Functions y un Cliente Web Estático con Blazor WebAssembly
 
@@ -141,6 +145,9 @@ resource "azurerm_mssql_database" "sqldb" {
   sku_name = "Free"
 }
 ```
+
+![image](https://github.com/user-attachments/assets/9a9eb7e5-b5bd-40e3-95b1-357fc4305f33)
+
 
 3. Abrir un navegador de internet y dirigirse a su repositorio en Github, en la sección *Settings*, buscar la opción *Secrets and Variables* y seleccionar la opción *Actions*. Dentro de esta crear los siguientes secretos
 > AZURE_USERNAME: Correo o usuario de cuenta de Azure
@@ -320,6 +327,9 @@ jobs:
             terraform apply -var="suscription_id=${{ secrets.SUSCRIPTION_ID }}" -var="sqladmin_username=${{ secrets.SQL_USER }}" -var="sqladmin_password=${{ secrets.SQL_PASS }}" -auto-approve main.tfplan
 ```
 </details>
+
+![image](https://github.com/user-attachments/assets/76391ad4-46f7-4b4c-a599-21b5ad7eaee6)
+
 
 6. En el Visual Studio Code, guardar los cambios y subir los cambios al repositorio. Revisar los logs de la ejeuciòn de automatizaciòn y anotar el numero de identificaciòn de Grupo de Recursos y Aplicación Web creados
 ```Bash
