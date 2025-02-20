@@ -30,7 +30,7 @@ jobs:
       - name: Run tfsec scan
         run: |
           cd infra
-          tfsec --format=json --out=tfsec-results.json . || true
+          tfsec --format=pretty . || true 
 
 
       - name: Upload tfsec results
