@@ -803,6 +803,44 @@ PS C:\Users\Usuario\lab-2024-rec-si982-u3-01-SergioUPT>
 
 2. Realizar el escaneo del codigo de terraform utilizando TfSec o Trivy dentro del Github Action. (2ptos)
 
+```Bash
+name: TfSec Security Scan
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infra/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  tfsec-scan:
+    name: Security Scan with TfSec
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TfSec
+        run: |
+          wget https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64 -O /usr/local/bin/tfsec
+          chmod +x /usr/local/bin/tfsec
+
+      - name: List files to confirm Terraform files exist
+        run: |
+          echo "Listing files in infra/"
+          ls -R infra/
+
+      - name: Run TfSec scan (Show results in GitHub Actions)
+        run: |
+          cd infra
+          tfsec --format default . || true
+```
+
 ![image](https://github.com/user-attachments/assets/4c8ecdc0-1023-4418-912c-bd6e67b369cf)
 
 
